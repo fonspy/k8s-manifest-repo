@@ -5,9 +5,13 @@ metadata:
   name: demo-frontend
   annotations:
     alb.ingress.kubernetes.io/healthcheck-path: "/"
+  labels:
+    env: dev
 spec:
   selector:
     app: frontend-fargate
+    select:
+      app: frontend-fargate
   type: NodePort
   ports:
     - protocol: TCP
